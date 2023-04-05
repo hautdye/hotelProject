@@ -1,0 +1,22 @@
+body{
+    background-image: url("../../../public/images/pattern-29-new.svg");
+    background-size: 500px;
+    background-attachment: fixed;
+    background-color: #FFEFD6;
+}
+
+.homeContainer{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    background-color: white;
+    padding-bottom: 50px;
+  }
+
+  .homeTitle{
+    color: #3A8891;
+    width: 1024px;
+    font-size: 20px;
+  }

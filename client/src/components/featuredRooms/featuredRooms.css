@@ -1,0 +1,39 @@
+.roomsContainer{
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.roomItem{
+    flex: 1;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.roomImg{
+    width: 100%;
+}
+
+.roomName{
+    font-weight: bold;
+}
+
+.roomPrice{
+    font-weight: 500;
+}
+
+.roomRating>button{
+    background-color: #0E5E6F;
+    color: white;
+    border: none;
+    padding: 3px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.roomRating>span{
+    font-size: 14px;
+}

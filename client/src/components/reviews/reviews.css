@@ -1,0 +1,27 @@
+.revContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.revItem{
+    width: 900px;
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent 100%);
+
+}
+
+.slide{
+    background-color: white;
+    padding: 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.slide:focus-visible{
+    background-color: blue;
+}
+
+.reviewerName{
+    margin-bottom: 10px;
+}

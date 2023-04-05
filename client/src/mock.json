@@ -1,0 +1,32 @@
+[
+    {
+        "image": "images/Hall/Hall1_1920x1280.jpg",
+        "title": "temp1",
+        "h1title": "Как дома",
+        "ptitle": "Мы ориентируемся на комфорт и качество"
+    },
+    {
+        "image": "images/Hall/Hall2_1920x1280.jpg",
+        "title": "temp2",
+        "h1title": "Несомненно лучший",
+        "ptitle": "Лучшее соотношение цены и качества под солнцем"
+    },
+    {
+        "image": "images/Hall/Hall3_1920x1280.jpg",
+        "title": "temp3",
+        "h1title": "Создан для отдыха",
+        "ptitle": "Добро пожаловать в оазис роскоши и спокойствия"
+    },
+    {
+        "image": "images/Hall/Hall4_1920x1280.jpg",
+        "title": "temp4",
+        "h1title": "",
+        "ptitle": ""
+    },
+    {
+        "image": "images/Hall/Hall5_1920x1280.jpg",
+        "title": "temp5",
+        "h1title": "",
+        "ptitle": ""
+    }
+]
