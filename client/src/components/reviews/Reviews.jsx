@@ -22,8 +22,6 @@ const Reviews = () =>{
                 centeredSlides= {true}
                 loop= {true}
                 slidesPerView={1.5}
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
                 >
                     <SwiperSlide>
                     <div className="slide">

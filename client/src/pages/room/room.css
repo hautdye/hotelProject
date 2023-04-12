@@ -1,0 +1,106 @@
+.roomTitle{
+    font-size: 40px;
+    color: #3A8891;
+    font-weight: 600;
+}
+
+.roomSubTitle{
+    font-size: 40px;
+    color: #3A8891;
+    font-weight:800;
+}
+
+.roomContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.roomWrapper{
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.roomImages{
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    align-items: center;
+    object-fit: cover; */
+
+    height: 600px;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.roomImageWrapper{
+    width: 33%;
+}
+
+.roomImage{
+    height: 600px;
+    object-fit:scale-down;
+}
+
+
+.roomImageThumb{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+.roomImageThumb:hover{
+    opacity: 0.8;
+}
+
+.roomDetails{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.roomDetailsTexts{
+    flex:3;
+}
+
+.roomFeatures{
+    font-size: 20px;
+    margin-top: 20px;
+    color: #0E5E6F;
+}
+
+.roomDetailsPrice{
+    flex:1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(14, 94, 111, 0.1);
+    margin-top: 30px;
+    border-radius: 20px;
+}
+
+.roomDetailsPrice>h1{
+    font-size: 18px;
+    color: #3A8891;
+}
+
+.roomDetailsPrice>h2{
+    color: #0E5E6F;
+    font-weight: 400;
+}
+
+.roomDetailsPrice>button{
+    height: 50px;
+    background-color: #3A8891;
+    color: white;
+    font-weight: 800;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 14px;
+}

@@ -18,7 +18,21 @@ export const updateRoom = async (req,res,next) =>{
             req.params.id,
             {$set: req.body},
             {new: true}
-        )
+        );
+        res.status(200).json(updatedRoom)
+    }catch(err){
+        next(err)
+    }
+}
+
+export const updateRoomAvailability = async (req,res,next) =>{
+    try{
+        await Room.updateOne({"roomNumbers._id": req.params.id},{
+            $push:{
+                "roomNumbers.$.unavailableDates": req.body.dates
+            }
+        })
+        res.status(200).json("Room status updated")
     }catch(err){
         next(err)
     }
@@ -43,8 +57,9 @@ export const getRoom = async (req,res,next) =>{
 }
 
 export const getRooms = async (req,res,next) =>{
+    const {min, max, limit, ...others} = req.query;
     try{
-        const rooms = await Room.find()
+        const rooms = await Room.find({...others, price:{$gte: min | 1, $lte: max || 999999},}).limit(limit)
         res.status(200).json(rooms)
     }catch(err){
         next(err)

@@ -4,19 +4,21 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import slides from "../../mock.json"
 import {DateRange} from 'react-date-range'
-import { useState } from "react";
+import { useContext, useState } from "react";
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import {format} from "date-fns"
 import {ru} from "date-fns/locale"
+import { useNavigate } from "react-router-dom";
+import { SearchContext } from "../../context/SearchContext";
 
 
 const Header = () =>{
     const [openDate, setOpenDate] = useState(false);
-    const [date, setDate] = useState([
+    const [dates, setDates] = useState([
         {
             startDate: new Date(),
-            endDate: new Date(),
+            endDate: new Date(Date.now() + 86400000),
             key: 'selection'
         },
     ]);
@@ -36,6 +38,15 @@ const Header = () =>{
         })
     }
 
+    const {dispatch} =useContext(SearchContext)
+
+    const navigate = useNavigate()
+
+    const handleSearch = () =>{
+        dispatch({type:"NEW_SEARCH", payload:{dates, options}})
+        navigate("/rooms", {state:{dates, options}})
+    }
+
     return(
         <div className="header">
             <div className="headerContainer">
@@ -51,8 +62,6 @@ const Header = () =>{
                             parallax = {true}
                             speed = {4000}
                             slidesPerView={1}
-                            onSlideChange={() => console.log('slide change')}
-                            onSwiper={(swiper) => console.log(swiper)}
                         >
                             {slides.map((slide) => (
                                 <SwiperSlide key={slide.image}>
@@ -70,14 +79,15 @@ const Header = () =>{
                     
                     <div className="headerSearch">
                         <div className="headerSearchItem">
-                            <span onClick={()=>setOpenDate(!openDate)} className="headerSearchText noselect">{`${format(date[0].startDate, "MM/dd/yy")} до ${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
+                            <span onClick={()=>setOpenDate(!openDate)} className="headerSearchText noselect">{`${format(dates[0].startDate, "MM/dd/yy")} до ${format(dates[0].endDate, "MM/dd/yy")}`}</span>
                             {openDate && <DateRange
                                 editableDateInputs={true}
-                                onChange={item => setDate([item.selection])}
+                                onChange={item => setDates([item.selection])}
                                 moveRangeOnFirstSelection={false}
-                                ranges={date}
+                                ranges={dates}
                                 locale={ru}
                                 className="date"
+                                minDate={new Date()}
                             />}
                         </div>
                         <div className="headerSearchItem">
@@ -110,7 +120,7 @@ const Header = () =>{
                             </div>}
                         </div>
                         <div className="headerSearchItem">
-                            <button className="headerButton">Найти</button>
+                            <button className="headerButton" onClick={handleSearch}>Найти</button>
                         </div>
                     </div>
                 </div>

@@ -8,6 +8,7 @@ import {
 import Home from './pages/home/Home';
 import List from './pages/list/List';
 import Room from './pages/room/Room';
+import Login from './pages/login/Login';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/rooms" element={<List/>}/>
         <Route path="/rooms/:id" element={<Room/>}/>
+        <Route path="/login" element={<Login/>}/>
       </Routes>
     </BrowserRouter>
   );

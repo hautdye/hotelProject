@@ -12,7 +12,7 @@ body{
     align-items: center;
     gap: 30px;
     background-color: white;
-    padding-bottom: 50px;
+    padding: 20px 0px 50px 0px;
   }
 
   .homeTitle{

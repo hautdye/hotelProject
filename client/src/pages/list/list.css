@@ -1,0 +1,101 @@
+body{
+    background-attachment:scroll;
+}
+
+.listContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;   
+}
+
+.listWrapper{
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    gap: 20px;
+}
+
+.listSearch{
+    flex:1;
+    background-color: #3A8891;
+    padding: 20px;
+    border-radius: 10px;
+    position: sticky;
+    top: 60px;
+    height: max-content;
+}
+
+.listSearch>button{
+    padding: 10px;
+    background-color: #0E5E6F;
+    color: #F2DEBA;
+    border: none;
+    width: 100%;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 18px;
+    
+}
+
+.listResult{
+    flex:3;
+}
+
+.lsTitle{
+    font-size: 23px;
+    color: #FFEFD6;
+    margin-bottom: 10px;
+}
+
+.lsItem{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.lsItem{
+    font-size: 12px;
+}
+
+.lsItem>label{
+    color:#FFEFD6;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.lsItem>span{
+    height: 30px;
+    padding: 5px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.lsOptions{padding:10px;}
+
+.lsOptionItem{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #FFEFD6;
+    font-size: 12px;
+}
+
+.lsOptionInput{
+    width: 50px;
+}
+
+
+
+
+
+/* Для хайда стрелок в input number*/
+input[type=number] {-moz-appearance: textfield;}
+
+input[type="number"]:focus, 
+input[type="number"]:hover {
+    appearance: auto;
+}
