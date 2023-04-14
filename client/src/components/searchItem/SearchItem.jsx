@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./searchItem.css"
 
-const SearchItem = ({item}) =>{
+const SearchItem = ({item, dates, options}) =>{
     return(
         <div className="searchItem">
             <img src={item.photos[0]} alt="" className="siImg" />
@@ -18,7 +18,8 @@ const SearchItem = ({item}) =>{
                 <div className="siDetailText">
                     <span className="siPrice">{item.price}₸</span>
                     <span className="siTaxOp">Включает налоги и сборы</span>
-                    <Link to={`/rooms/${item._id}`}>
+                    {console.log(dates)}
+                    <Link to={`/rooms/${item._id}`} state={{dates:dates, options:options}}>
                         <button className="siCheckButton">Посмотреть места</button>
                     </Link>
                 </div>

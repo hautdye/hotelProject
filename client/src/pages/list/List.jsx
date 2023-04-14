@@ -69,7 +69,7 @@ const List = () =>{
                     <div className="listResult">
                         {loading ? "loading" : <>
                             {data.map(item=>(
-                                <SearchItem item={item} key={item._id}/>
+                                <SearchItem item={item} key={item._id} dates={dates} options={options}/>
                             ))}
                         </>}
                     </div>

@@ -18,10 +18,12 @@ const Room = () =>{
     const location = useLocation()
     const id = location.pathname.split("/")[2]
     const {data, loading, error, reFetch} = useFetch(`/rooms/${id}`)
+    const [dates, setDates] = useState(location.state.dates)
+    const [options,setOptions] = useState(location.state.options)
 
     const [openModal, setOpenModal] = useState(false);
 
-    const { dates, options } = useContext(SearchContext)
+    // const { dates, options } = useContext(SearchContext)
     const {user} = useContext(AuthContext);
     const navigate = useNavigate();
 
