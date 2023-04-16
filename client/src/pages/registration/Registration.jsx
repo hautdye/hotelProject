@@ -1,13 +1,14 @@
 import { useContext, useState } from "react"
-import "./login.css"
+import "./registration.css"
 import { AuthContext } from "../../context/AuthContext"
 import axios from "axios"
 import Navbar from "../../components/navbar/Navbar"
 import { useNavigate } from "react-router-dom"
 
-const Login = () =>{
+const Registration = () =>{
     const [credentials, setCredentials] = useState({
         username:undefined,
+        email:undefined,
         password:undefined,
     })
 
@@ -23,7 +24,8 @@ const Login = () =>{
         e.preventDefault()
         dispatch({type:"LOGIN_START"})
         try{
-            const res = await axios.post("/auth/login", credentials)
+            await axios.post("/auth/register", credentials)
+            const res = await axios.post("/auth/login", {username:credentials.username, password:credentials.password})
             dispatch({type:"LOGIN_SUCCESS", payload: res.data.details})
             navigate("/")
         }catch(err){
@@ -36,9 +38,10 @@ const Login = () =>{
         <Navbar/>
         <div className="login">
             <div className="loginContainer">
-                <input type="text" placeholder="логин" id="username" onChange={handleChange} className="loginInput" />
-                <input type="password" placeholder="пароль" id="password" onChange={handleChange} className="loginInput" />
-                <button disabled={loading} className="loginButton" onClick={handleLogin}>Войти</button>
+                <input type="text" placeholder="login" id="username" onChange={handleChange} className="loginInput" />
+                <input type="text" placeholder="email@gmail.com" id="email" onChange={handleChange} className="loginInput" />
+                <input type="password" placeholder="********" id="password" onChange={handleChange} className="loginInput" />
+                <button disabled={loading} className="loginButton" onClick={handleLogin}>Зарегистрироваться</button>
                 {error && <span>{error.message}</span>}
             </div>
         </div>
@@ -46,4 +49,4 @@ const Login = () =>{
     )
 }
 
-export default Login;
+export default Registration;

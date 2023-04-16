@@ -10,6 +10,8 @@ export const register = async (req, res, next) =>{
         const newUser = new User({
             username: req.body.username,
             email: req.body.email,
+            img: req.body.img,
+            isAdmin: req.body.isAdmin,
             password: hash,
         })
 
@@ -34,7 +36,7 @@ export const login = async (req, res, next) =>{
 
         res.cookie("access_token", token, {
             httpOnly:true,
-        }).status(200).json({...otherdetails})
+        }).status(200).json({details:{...otherdetails}, isAdmin})
     }catch(err){
         next(err);
     }

@@ -9,6 +9,7 @@ import Home from './pages/home/Home';
 import List from './pages/list/List';
 import Room from './pages/room/Room';
 import Login from './pages/login/Login';
+import Registration from './pages/registration/Registration';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/rooms" element={<List/>}/>
         <Route path="/rooms/:id" element={<Room/>}/>
         <Route path="/login" element={<Login/>}/>
+        <Route path="/registration" element={<Registration/>}/>
       </Routes>
     </BrowserRouter>
   );
