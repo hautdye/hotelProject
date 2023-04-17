@@ -27,7 +27,7 @@ export const updateReserv = async (req,res,next)=>{
 
 export const deleteReserv = async (req,res,next)=>{
   try {
-    await Reserv.findByIdAndDelete(req.params.id);
+    await Reserv.findByIdAndDelete(req.body.reservId);
     res.status(200).json("Reserv has been deleted.");
   } catch (err) {
     next(err);

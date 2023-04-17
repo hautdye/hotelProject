@@ -15,6 +15,10 @@ const ReservSchema = new mongoose.Schema({
     unavailableDates: {
         type:[Date],
         validate: v => Array.isArray(v) && v.length > 0,
+    },
+    roomNumber:{
+        type: String,
+        required:true
     }
 },{timestamps:true});
 

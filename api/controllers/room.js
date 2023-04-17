@@ -27,11 +27,20 @@ export const updateRoom = async (req,res,next) =>{
 
 export const updateRoomAvailability = async (req,res,next) =>{
     try{
-        await Room.updateOne({"roomNumbers._id": req.body.roomNumberId},{
-            $push:{
-                "roomNumbers.$.reservIds": req.body.reservId
-            }
-        })
+        if(req.body.delete){
+            await Room.updateOne({"roomNumbers._id": req.body.roomNumberId},{
+                $pull:{
+                    "roomNumbers.$.reservIds": req.body.reservId
+                }
+            })
+        }
+        else{
+            await Room.updateOne({"roomNumbers._id": req.body.roomNumberId},{
+                $push:{
+                    "roomNumbers.$.reservIds": req.body.reservId
+                }
+            })
+        }
         res.status(200).json("Room status updated")
     }catch(err){
         next(err)

@@ -1,13 +1,47 @@
-/* .reservationWrap{
+.reservationWrap{
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.listResult{
-    width: 1024px;
+.reservlistResults{
+    max-width: 1024px;
+    display:grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.reservlistResult{
     display: flex;
     justify-content: center;
     align-items: center;
-} */
+}
+.reservlistRight{
+    margin-left: 5px;
+    width: 800px;
+    height: 200px;
+    display: flex;
+    align-items:center;
+    flex-direction: column;
+    justify-content:flex-end;
+    gap: 20px;
+    /* background-color: green; */
+}
+
+.cancelButton{
+    width: 150px;
+    padding: 10px;
+    border: none;
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+.unavailableDates{
+    color: #0E5E6F;
+    font-size: 16px;
+    font-weight: 700;
+}

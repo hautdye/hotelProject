@@ -36,22 +36,23 @@ const Reserve = ({setOpen, roomId, data})=>{
         }
     }
     
-    data.roomNumbers.map(item => isAvailable(item));
+    Promise.all(data.roomNumbers.map(item => isAvailable(item)));
 
 
 
-    const handleSelect = (e)=>{
+    const handleSelect = (e, roomNumber)=>{
         const checked = e.target.checked
         const value = e.target.value
-        setSelectedRooms(checked ? [...selectedRooms, value] : selectedRooms.filter((item)=>item !== value))
+        setSelectedRooms(checked ? [...selectedRooms, [value, roomNumber]] : selectedRooms.filter((item)=>item[0] !== value))
     }
+    console.log(selectedRooms)
     const navigate = useNavigate()
 
     const handleClick = async ()=>{
         try{
-            await Promise.all(selectedRooms.map(async roomNumberId=>{
-                const resPost = await axios.post(`/reservs/${user._id}`, {roomNumberId:roomNumberId, unavailableDates:alldates, roomId:roomId});
-                const resPut = await axios.put(`/rooms/availability/${user._id}`, {reservId:resPost.data._id, roomNumberId: roomNumberId})
+            await Promise.all(selectedRooms.map(async roomNumberSet=>{
+                const resPost = await axios.post(`/reservs/${user._id}`, {roomNumberId:roomNumberSet[0], unavailableDates:alldates, roomId:roomId, roomNumber:roomNumberSet[1]});
+                const resPut = await axios.put(`/rooms/availability/${user._id}`, {reservId:resPost.data._id, roomNumberId: roomNumberSet[0]})
                 return resPut.data;
             }))
             setOpen(false)
@@ -70,7 +71,7 @@ const Reserve = ({setOpen, roomId, data})=>{
                     {data.roomNumbers.map(item=>(
                         <div className="rItem" key={item._id}>
                             <label> {item.number} </label>
-                            <input type="checkbox"  value={item._id} onChange={handleSelect} disabled={Rooms.includes(item._id)} />
+                            <input type="checkbox"  value={item._id} onChange={event =>handleSelect(event, item.number)} disabled={Rooms.includes(item._id)} />
                         </div>
                     ))}
                 </div>
