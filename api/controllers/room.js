@@ -27,9 +27,9 @@ export const updateRoom = async (req,res,next) =>{
 
 export const updateRoomAvailability = async (req,res,next) =>{
     try{
-        await Room.updateOne({"roomNumbers._id": req.params.id},{
+        await Room.updateOne({"roomNumbers._id": req.body.roomNumberId},{
             $push:{
-                "roomNumbers.$.unavailableDates": req.body.dates
+                "roomNumbers.$.reservIds": req.body.reservId
             }
         })
         res.status(200).json("Room status updated")
