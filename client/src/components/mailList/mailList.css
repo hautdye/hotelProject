@@ -1,7 +1,33 @@
-.mail{
-    width: 100%;
+.mailNlocation{
+    display: flex;
+    flex-direction: row;
     margin-top: 50px;
     background-color: #0E5E6F;
+}
+
+.location{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 30px;
+}
+
+.location>iframe{
+    height: 100%;
+}
+
+.location>span{
+    color: white;
+    width: 170px;
+    align-self: baseline;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.mail{
+    width: 100%;
     color: white;
     display: flex;
     flex-direction: column;
