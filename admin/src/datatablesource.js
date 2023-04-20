@@ -25,6 +25,37 @@ export const userColumns = [
   },
 ];
 
+
+export const reservColumns = [
+  { field: "_id", headerName: "ID", width: 230 },
+  {
+    field: "roomId",
+    headerName: "ID Номера",
+    width: 230,
+  },
+  {
+    field: "roomNumber",
+    headerName: "Комната",
+    width: 70,
+  },
+  {
+    field: "roomNumberId",
+    headerName: "ID Комнаты",
+    width: 230,
+  },
+  {
+    field: "userId",
+    headerName: "ID Пользователя",
+    width: 230,
+  },
+  {
+    field: "unavailableDates",
+    headerName: "Дата бронирования",
+    width: 230,
+  },
+
+  
+];
 export const roomColumns = [
   { field: "_id", headerName: "ID", width: 300 },
   {
