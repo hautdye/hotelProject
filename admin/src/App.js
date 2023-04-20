@@ -10,6 +10,7 @@ import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
 import { roomColumns, userColumns, reservColumns } from "./datatablesource";
 import NewRoom from "./pages/newRoom/NewRoom";
+import Reservs from "./pages/reservs/Reservs";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -79,7 +80,7 @@ function App() {
                 index
                 element={
                   <ProtectedRoute>
-                    <List columns={reservColumns} />
+                    <Reservs columns={reservColumns} />
                   </ProtectedRoute>
                 }
               />

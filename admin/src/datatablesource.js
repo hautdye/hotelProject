@@ -27,16 +27,16 @@ export const userColumns = [
 
 
 export const reservColumns = [
-  { field: "_id", headerName: "ID", width: 230 },
+  { field: "reservId", headerName: "ID", width: 230 },
   {
-    field: "roomId",
-    headerName: "ID Номера",
-    width: 230,
+    field: "title",
+    headerName: "Номер",
+    width: 200,
   },
   {
     field: "roomNumber",
     headerName: "Комната",
-    width: 70,
+    width: 100,
   },
   {
     field: "roomNumberId",

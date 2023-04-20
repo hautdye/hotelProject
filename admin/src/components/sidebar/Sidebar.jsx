@@ -3,6 +3,7 @@ import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import BookOnlineIcon from '@mui/icons-material/BookOnline';
 import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
@@ -32,6 +33,12 @@ const Sidebar = () => {
             <li>
               <CreditCardIcon className="icon" />
               <span>Номера</span>
+            </li>
+          </Link>
+          <Link to="/reservs" style={{ textDecoration: "none" }}>
+            <li>
+              <BookOnlineIcon className="icon" />
+              <span>Бронь</span>
             </li>
           </Link>
           
